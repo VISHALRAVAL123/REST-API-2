@@ -1,0 +1,16 @@
+4
+{% block content %}
+<h1>Country Details for {{ country_data.name }}</h1>
+
+{% if country_data %}
+    <h2>Country Details</h2>
+    <ul>
+        <li><strong>Name:</strong> {{ country_data.name }}</li>
+        <li><strong>Capital:</strong> {{ country_data.capital }}</li>
+        <li><strong>Population:</strong> {{ country_data.population }}</li>
+        <!-- Add other details as needed -->
+    </ul>
+{% else %}
+    <p>Country details not available.</p>
+{% endif %}
+{% endblock %}
