@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form action="{% url 'create' %}" method="POST">
+		{% csrf_token %}
+		<center>
+		<h2>Todo View</h2>
+		{% if msg%}
+			<b style="color:blue;">{{msg}}</b>
+		{% endif %}
+		{% for i in todo %}
+		<div style="padding:5px">
+			<tr>
+				<td>Sr.Number</td>
+				<td><input type="text" name="srnumber" value="{{i.number}}"></td>
+			</tr>
+		</div>
+		<div style="padding: 5px;">
+			<tr>
+				<td>Title Number</td>
+				<td><input type="text" name="title" value="{{i.title}}"></td>
+			</tr>
+		</div>
+		<div style="padding: 5px;">
+			<tr>
+				<td>category</td>
+				<td><input type="text" name="category" value="{{i.category}}"></td>
+			</tr>
+		</div>
+		<div style="padding: 5px;">
+			<tr>
+				<td>description</td>
+				<td><textarea name="address">{{i.description}}</textarea></td>
+			</tr>
+		</div>
+		<div style="padding: 5px;">
+			<a href="{% url 'edit' pk=i.pk %}"><input type="button" name="edit" value="edit">
+			<a href="{% url 'delete' pk=i.pk %}"><input type="button" name="delete" value="delete">
+		</div>
+			
+		</center>
+		{% endfor %}
+	</form>
+	<a href="{% url 'index' %}">home page</a>
+
+</body>
+</html>

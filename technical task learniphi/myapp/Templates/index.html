@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>tecnical task</title>
+</head>
+<body>
+
+	<center>
+		<h3>TODO</h3>
+		{% if msg %}
+		<b style="color:blue;">{{msg}}</b>
+		{% endif %}
+	<div >
+		<form action="{% url 'create' %}" method="post">
+			{% csrf_token %}
+			
+		<div style="padding:5px">	
+			<tr>
+				<td>
+					Sr. Number
+				</td>
+				<td>
+					<input type="text" name="srnumber" required>
+				</td>
+			</tr>
+		</div>	
+		<div style="padding:5px">	
+			<tr>
+				<td>
+					Title Name
+				</td>
+				<td>
+					<input type="text" name="title" required>
+				</td>
+			</tr>
+		</div>
+		<div style="padding:5px">	
+			<tr>
+				<td>
+					Category
+				</td>
+				<td>
+					<input type="text" name="category" required>
+				</td>
+			</tr>
+		</div>	
+		<div style="padding:5px">	
+			<tr>
+				<td>
+					Description
+				</td>
+				<td>
+					<textarea name="description" required></textarea>
+				</td>
+			</tr>
+		</div>	
+		<div style="padding:5px">	
+			<tr><td><button class="btn-btn primery">submit</button></td></tr>
+
+		</div>
+		</form>
+		<div><a href="{% url 'read'%}"><input type="button" name="read" value="view"></div>
+	</div>		
+</center>
+
+</body>
+</html>
